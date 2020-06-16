@@ -1,3 +1,4 @@
+#include <string.h>
 #include "atom.h"
 
 Atom atom_new(int id, double position[3])
