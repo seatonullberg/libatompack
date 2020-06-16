@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include "atom.h"
 #include "tests.h"
@@ -40,6 +41,19 @@ struct test atom_tests[] = {
     `util` module tests
 */
 
+bool test_distance()
+{
+    bool test;
+
+    double a[3] = {1.0, 2.0, 3.0};
+    double b[3] = {3.0, 2.0, 1.0};
+    double d = distance(a, b);
+
+    test = (d == sqrt(8.0));
+
+    return test;
+}
+
 bool test_metric_tensor()
 {
     bool test;
@@ -61,8 +75,9 @@ bool test_metric_tensor()
     return test;
 }
 
-#define N_UTIL_TESTS 1
+#define N_UTIL_TESTS 2
 struct test util_tests[] = {
+    {test_distance, "test_distance"},
     {test_metric_tensor, "test_metric_tensor"},
 };
 

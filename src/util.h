@@ -1,4 +1,5 @@
 #define PI 3.14159265358979323846
 
+double distance(double a[3], double b[3]);
 void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3]);
 void polyhedron_vertices(double poly[3][3], double out[8][3]);

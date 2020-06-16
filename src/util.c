@@ -1,6 +1,17 @@
 #include <math.h>
 #include <string.h>
 
+double distance(double a[3], double b[3])
+{
+    int i;
+    double res;
+    for (i = 0; i < 3; i++)
+    {
+        res += (a[i] - b[i]) * (a[i] - b[i]);
+    }
+    return sqrt(res);
+}
+
 void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])
 {
     out[0][0] = a * a;
