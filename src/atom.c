@@ -1,10 +1,4 @@
-#include <string.h>
-
-typedef struct
-{
-    int id;
-    double position[3];
-} Atom;
+#include "atom.h"
 
 Atom atom_new(int id, double position[3])
 {
@@ -13,14 +7,6 @@ Atom atom_new(int id, double position[3])
     memcpy(&atom.position, position, sizeof(double) * 3);
     return atom;
 }
-
-typedef struct
-{
-    double basis[3][3];
-    size_t size;
-    size_t capacity;
-    Atom *atoms[];
-} AtomCollection;
 
 AtomCollection atom_collection_new(double basis[3][3], size_t size, size_t capacity, Atom *atoms[])
 {
