@@ -1,19 +1,32 @@
 #include <stdio.h>
 #include "atom.h"
 #include "tests.h"
+#include "util.h"
+
+/*
+    `atom` module tests
+*/
 
 bool test_atom_new()
 {
     bool test;
 
-    int id = 1;
-    double position[3] = {1.0, 2.0, 3.0};
+    int id = 0;
+    double position[3] = {0.0, 0.0, 0.0};
     Atom atom = atom_new(id, position);
 
-    test = (atom.id == 1);
-    test = test && (atom.position[0] == 1.0);
-    test = test && (atom.position[1] == 2.0);
-    test = test && (atom.position[2] == 3.0);
+    int new_id = 1;
+    atom_set_id(&atom, new_id);
+    double new_position[3] = {3.0, 2.0, 1.0};
+    atom_set_position(&atom, new_position);
+
+    int atom_id = atom_get_id(&atom);
+    double *atom_position = atom_get_position(&atom);
+
+    test = (atom_id == 1);
+    test = test && (atom_position[0] == 3.0);
+    test = test && (atom_position[1] == 2.0);
+    test = test && (atom_position[2] == 1.0);
 
     return test;
 }
@@ -21,6 +34,36 @@ bool test_atom_new()
 #define N_ATOM_TESTS 1
 struct test atom_tests[] = {
     {test_atom_new, "test_atom_new"},
+};
+
+/*
+    `util` module tests
+*/
+
+bool test_metric_tensor()
+{
+    bool test;
+
+    double a, b, c, alpha, beta, gamma;
+    a = 2.0;
+    b = 2.0;
+    c = 2.0;
+    alpha = PI / 2.0;
+    beta = PI / 2.0;
+    gamma = PI / 2.0;
+    double m[3][3];
+    metric_tensor(a, b, c, alpha, beta, gamma, m);
+
+    test = (m[0][0] == 4.0);
+    test = test && (m[1][1] == 4.0);
+    test = test && (m[2][2] == 4.0);
+
+    return test;
+}
+
+#define N_UTIL_TESTS 1
+struct test util_tests[] = {
+    {test_metric_tensor, "test_metric_tensor"},
 };
 
 /* Testing Setup.
@@ -77,4 +120,5 @@ void run_tests(struct test tests[], int n_tests)
 void run_all()
 {
     run_tests(atom_tests, N_ATOM_TESTS);
+    run_tests(util_tests, N_UTIL_TESTS);
 }
