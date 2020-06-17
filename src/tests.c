@@ -12,29 +12,51 @@ bool test_atom_new()
 {
     bool test;
 
-    int id = 0;
-    double position[3] = {0.0, 0.0, 0.0};
-    Atom atom = atom_new(id, position);
+    int id = 1;
+    double position[3] = {1.0, 2.0, 3.0};
+    Atom *atom = atom_new(id, position);
 
-    int new_id = 1;
-    atom_set_id(&atom, new_id);
-    double new_position[3] = {3.0, 2.0, 1.0};
-    atom_set_position(&atom, new_position);
+    test = (atom_get_id(atom) == 1);
+    test = test && (atom_get_position(atom)[0] == 1.0);
+    test = test && (atom_get_position(atom)[1] == 2.0);
+    test = test && (atom_get_position(atom)[2] == 3.0);
 
-    int atom_id = atom_get_id(&atom);
-    double *atom_position = atom_get_position(&atom);
-
-    test = (atom_id == 1);
-    test = test && (atom_position[0] == 3.0);
-    test = test && (atom_position[1] == 2.0);
-    test = test && (atom_position[2] == 1.0);
-
+    atom_free(atom);
     return test;
 }
 
-#define N_ATOM_TESTS 1
+bool test_atom_collection_new() {
+    bool test;
+
+    int id = 1;
+    double position[3] = {1.0, 2.0, 3.0};
+    Atom *atom = atom_new(id, position);
+    Atom *atoms[] = {atom};
+    double basis[3][3] = {
+        {1.0, 0.0, 0.0},
+        {0.0, 1.0, 0.0},
+        {0.0, 0.0, 1.0},
+    };
+    size_t length = 1;
+    size_t capacity = 1;
+    AtomCollection *collection = atom_collection_new(basis, length, capacity, atoms);
+
+    test = (collection->basis[0][0] == 1.0);
+    test = test && (collection->basis[1][1] == 1.0);
+    test = test && (collection->basis[2][2] == 1.0);
+    test = test && (collection->atoms[0]->id == 1);
+    test = test && (collection->atoms[0]->position[0] == 1.0);
+    test = test && (collection->atoms[0]->position[1] == 2.0);
+    test = test && (collection->atoms[0]->position[2] == 3.0);
+
+    atom_collection_free(collection);
+    return test;
+}
+
+#define N_ATOM_TESTS 2
 struct test atom_tests[] = {
     {test_atom_new, "test_atom_new"},
+    {test_atom_collection_new, "test_atom_collection_new"},
 };
 
 /*

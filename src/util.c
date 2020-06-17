@@ -1,5 +1,4 @@
 #include <math.h>
-#include <string.h>
 
 double distance(double a[3], double b[3])
 {
@@ -51,13 +50,14 @@ void polyhedron_vertices(double poly[3][3], double out[8][3])
         poly[0][1] + poly[1][1] + poly[2][1],
         poly[0][2] + poly[1][2] + poly[2][2],
     };
-    size_t row_size = sizeof(double) * 3;
-    memcpy(out[0], &origin, row_size);
-    memcpy(out[1], &x, row_size);
-    memcpy(out[2], &y, row_size);
-    memcpy(out[3], &z, row_size);
-    memcpy(out[4], &xy, row_size);
-    memcpy(out[5], &xz, row_size);
-    memcpy(out[6], &yz, row_size);
-    memcpy(out[7], &xyz, row_size);
+    for (int i = 0; i < 3; i++) {
+        out[0][i] = origin[i];
+        out[1][i] = x[i];
+        out[2][i] = y[i];
+        out[3][i] = z[i];
+        out[4][i] = xy[i];
+        out[5][i] = xz[i];
+        out[6][i] = yz[i];
+        out[7][i] = xyz[i];
+    }
 }
