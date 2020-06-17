@@ -27,7 +27,8 @@ bool test_atom_new()
     return test;
 }
 
-bool test_atom_collection_new() {
+bool test_atom_collection_new()
+{
     bool test;
 
     int id = 1;
@@ -65,19 +66,20 @@ struct test atom_tests[] = {
     `linalg` module tests
 */
 
-bool test_dist()
+bool test_angle()
 {
     bool test;
 
     double a[3] = {1.0, 2.0, 3.0};
     double b[3] = {3.0, 2.0, 1.0};
 
-    test = (dist(a, b, 3) == sqrt(8.0));
+    test = (angle(a, b, 3) == 0.7142857142857143);
 
     return test;
 }
 
-bool test_dot() {
+bool test_dot()
+{
     bool test;
 
     double a[3] = {1.0, 2.0, 3.0};
@@ -88,20 +90,34 @@ bool test_dot() {
     return test;
 }
 
-bool test_norm() {
+bool test_euclidean()
+{
     bool test;
 
     double a[3] = {1.0, 2.0, 3.0};
-    
+    double b[3] = {3.0, 2.0, 1.0};
+
+    test = (euclidean(a, b, 3) == sqrt(8.0));
+
+    return test;
+}
+
+bool test_norm()
+{
+    bool test;
+
+    double a[3] = {1.0, 2.0, 3.0};
+
     test = (norm(a, 3) == sqrt(14.0));
 
     return test;
 }
 
-#define N_LINALG_TESTS 3
+#define N_LINALG_TESTS 4
 struct test linalg_tests[] = {
-    {test_dist, "test_dist"},
+    {test_angle, "test_angle"},
     {test_dot, "test_dot"},
+    {test_euclidean, "test_euclidean"},
     {test_norm, "test_norm"},
 };
 
