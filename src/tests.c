@@ -1,6 +1,8 @@
 #include <math.h>
 #include <stdio.h>
 #include "atom.h"
+#include "constants.h"
+#include "linalg.h"
 #include "tests.h"
 #include "util.h"
 
@@ -60,7 +62,7 @@ struct test atom_tests[] = {
 };
 
 /*
-    `util` module tests
+    `linalg` module tests
 */
 
 bool test_dist()
@@ -96,6 +98,17 @@ bool test_norm() {
     return test;
 }
 
+#define N_LINALG_TESTS 3
+struct test linalg_tests[] = {
+    {test_dist, "test_dist"},
+    {test_dot, "test_dot"},
+    {test_norm, "test_norm"},
+};
+
+/*
+    `util` module tests
+*/
+
 bool test_metric_tensor()
 {
     bool test;
@@ -117,11 +130,8 @@ bool test_metric_tensor()
     return test;
 }
 
-#define N_UTIL_TESTS 4
+#define N_UTIL_TESTS 1
 struct test util_tests[] = {
-    {test_dist, "test_dist"},
-    {test_dot, "test_dot"},
-    {test_norm, "test_norm"},
     {test_metric_tensor, "test_metric_tensor"},
 };
 
@@ -179,5 +189,6 @@ void run_tests(struct test tests[], int n_tests)
 void run_all()
 {
     run_tests(atom_tests, N_ATOM_TESTS);
+    run_tests(linalg_tests, N_LINALG_TESTS);
     run_tests(util_tests, N_UTIL_TESTS);
 }
