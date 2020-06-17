@@ -63,15 +63,35 @@ struct test atom_tests[] = {
     `util` module tests
 */
 
-bool test_distance()
+bool test_dist()
 {
     bool test;
 
     double a[3] = {1.0, 2.0, 3.0};
     double b[3] = {3.0, 2.0, 1.0};
-    double d = distance(a, b);
 
-    test = (d == sqrt(8.0));
+    test = (dist(a, b, 3) == sqrt(8.0));
+
+    return test;
+}
+
+bool test_dot() {
+    bool test;
+
+    double a[3] = {1.0, 2.0, 3.0};
+    double b[3] = {3.0, 2.0, 1.0};
+
+    test = (dot(a, b, 3) == 10);
+
+    return test;
+}
+
+bool test_norm() {
+    bool test;
+
+    double a[3] = {1.0, 2.0, 3.0};
+    
+    test = (norm(a, 3) == sqrt(14.0));
 
     return test;
 }
@@ -97,9 +117,11 @@ bool test_metric_tensor()
     return test;
 }
 
-#define N_UTIL_TESTS 2
+#define N_UTIL_TESTS 4
 struct test util_tests[] = {
-    {test_distance, "test_distance"},
+    {test_dist, "test_dist"},
+    {test_dot, "test_dot"},
+    {test_norm, "test_norm"},
     {test_metric_tensor, "test_metric_tensor"},
 };
 
