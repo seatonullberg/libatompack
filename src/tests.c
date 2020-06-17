@@ -18,10 +18,14 @@ bool test_atom_new()
     double position[3] = {1.0, 2.0, 3.0};
     Atom *atom = atom_new(id, position);
 
-    test = (atom_get_id(atom) == 1);
-    test = test && (atom_get_position(atom)[0] == 1.0);
-    test = test && (atom_get_position(atom)[1] == 2.0);
-    test = test && (atom_get_position(atom)[2] == 3.0);
+    int res_id = atom_get_id(atom);
+    double res_position[3];
+    atom_get_position(atom, res_position);
+
+    test = (res_id == 1);
+    test = test && (res_position[0] == 1.0);
+    test = test && (res_position[1] == 2.0);
+    test = test && (res_position[2] == 3.0);
 
     atom_free(atom);
     return test;
@@ -42,17 +46,28 @@ bool test_atom_collection_new()
     };
     size_t length = 1;
     size_t capacity = 1;
-    AtomCollection *collection = atom_collection_new(basis, length, capacity, atoms);
+    AtomCollection *ptr = atom_collection_new(basis, length, capacity, atoms);
 
-    test = (collection->basis[0][0] == 1.0);
-    test = test && (collection->basis[1][1] == 1.0);
-    test = test && (collection->basis[2][2] == 1.0);
-    test = test && (collection->atoms[0]->id == 1);
-    test = test && (collection->atoms[0]->position[0] == 1.0);
-    test = test && (collection->atoms[0]->position[1] == 2.0);
-    test = test && (collection->atoms[0]->position[2] == 3.0);
+    double res_basis[3][3];
+    atom_collection_get_basis(ptr, res_basis);
+    Atom *res_atoms[ptr->length];
+    atom_collection_get_atoms(ptr, res_atoms);
+    int res_id = res_atoms[0]->id;
+    double res_position[3];
+    for (int i = 0; i < 3; i++)
+    {
+        res_position[i] = res_atoms[0]->position[i];
+    }
 
-    atom_collection_free(collection);
+    test = (res_basis[0][0] == 1.0);
+    test = test && (res_basis[1][1] == 1.0);
+    test = test && (res_basis[2][2] == 1.0);
+    test = test && (res_id == 1);
+    test = test && (res_position[0] == 1.0);
+    test = test && (res_position[1] == 2.0);
+    test = test && (res_position[2] == 3.0);
+
+    atom_collection_free(ptr);
     return test;
 }
 
