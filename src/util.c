@@ -1,20 +1,27 @@
 #include <math.h>
-#include <stdlib.h>
 #include "util.h"
 
 // Returns the angle between two vectors in radians.
-double angle(double a[], double b[], size_t N)
+double angle(double a[3], double b[3])
 {
-    double numerator = dot(a, b, N);
-    double denominator = norm(a, N) * norm(b, N);
+    double numerator = dot(a, b);
+    double denominator = norm(a) * norm(b);
     return numerator / denominator;
 }
 
+// Populates an array with a copy of the cross product between two vectors.
+double cross(double a[3], double b[3], double out[3])
+{
+    out[0] = a[1] * b[2] - a[2] * b[1];
+    out[1] = a[2] * b[0] - a[0] * b[2];
+    out[2] = a[0] * b[1] - a[1] * b[0];
+}
+
 // Returns the dot product of two vectors.
-double dot(double a[], double b[], size_t N)
+double dot(double a[3], double b[3])
 {
     double prod = 0.0;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 3; i++)
     {
         prod += a[i] * b[i];
     }
@@ -22,10 +29,10 @@ double dot(double a[], double b[], size_t N)
 }
 
 // Returns the euclidean distance between two vectors.
-double euclidean(double a[], double b[], size_t N)
+double euclidean(double a[3], double b[3])
 {
     double sum = 0.0;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 3; i++)
     {
         sum += (a[i] - b[i]) * (a[i] - b[i]);
     }
@@ -33,10 +40,10 @@ double euclidean(double a[], double b[], size_t N)
 }
 
 // Returns the l2 norm of a vector.
-double norm(double a[], size_t N)
+double norm(double a[3])
 {
     double sum = 0.0;
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < 3; i++)
     {
         sum += a[i] * a[i];
     }

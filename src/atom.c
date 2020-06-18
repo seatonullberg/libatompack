@@ -118,6 +118,7 @@ void atom_collection_set_atoms(AtomCollection *ptr, size_t length, size_t capaci
     ptr->capacity = capacity;
 }
 
-// ERROR_CODE atom_collection_insert(AtomCollection *ptr, Atom *atom) {
-
-// }
+// TODO
+// ERROR_CODE atom_collection_insert(AtomCollection *ptr, Atom *atom) {}
+// ERROR_CODE atom_collection_remove(AtomCollection *ptr, double position[3], Atom **out) {}
+// ERROR_CODE atom_collection_select(AtomCollection *ptr, double position[3], Atom **out) {}

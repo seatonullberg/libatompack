@@ -1,6 +1,5 @@
-#include <stdlib.h>
-
-double angle(double a[], double b[], size_t N);
-double dot(double a[], double b[], size_t N);
-double euclidean(double a[], double b[], size_t N);
-double norm(double a[], size_t N);
+double angle(double a[3], double b[3]);
+double cross(double a[3], double b[3], double out[3]);
+double dot(double a[3], double b[3]);
+double euclidean(double a[3], double b[3]);
+double norm(double a[3]);
