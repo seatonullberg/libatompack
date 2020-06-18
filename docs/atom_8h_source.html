@@ -54,48 +54,50 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="atom_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structAtom.html">   12</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> id;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> position[3];</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <a class="code" href="structAtom.html">Atom</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="structAtom.html">Atom</a> *<a class="code" href="atom_8h.html#a9553ab7d894de5b0ce3fde0c250bf980">atom_new</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> position[3]);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a919ec09fd9a06a48c23844b93c1ab5fc">atom_free</a>(<a class="code" href="structAtom.html">Atom</a> *ptr);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">int</span> <a class="code" href="atom_8h.html#a57d84fa77cf9936b1864e37956bc4fdd">atom_get_id</a>(<a class="code" href="structAtom.html">Atom</a> *ptr);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#aa1ecb74ecc8c578a41869d2d36dc47e0">atom_set_id</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ad69f13ed91f0738fe850d919d4de2e43">atom_get_position</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">double</span> out[3]);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ab34a67e02710340b461d9528ad38c610">atom_set_position</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">double</span> position[3]);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structAtomCollection.html">   73</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">double</span> basis[3][3];</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">size_t</span> length;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">size_t</span> capacity;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">size_t</span> size;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="structAtom.html">Atom</a> *atoms[];</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;} <a class="code" href="structAtomCollection.html">AtomCollection</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<a class="code" href="structAtomCollection.html">AtomCollection</a> *<a class="code" href="atom_8h.html#a73dad4efab7017afdf1020e90a7fca57">atom_collection_new</a>(<span class="keywordtype">double</span> basis[3][3], <span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> capacity, <a class="code" href="structAtom.html">Atom</a> *atoms[]);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ad469757fde1f9f0f6542df87d685b981">atom_collection_free</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a5ee5d6bebb875b4106de0eb4aaf2ebbf">atom_collection_get_basis</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">double</span> out[3][3]);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a1cae5133a1741ee1a85b0baa27063376">atom_collection_set_basis</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">double</span> basis[3][3]);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a9ec862777af7dad02203fcde6e198aa1">atom_collection_get_atoms</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <a class="code" href="structAtom.html">Atom</a> *out[]);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ae77629adb03d27793809a01dfc0a3517">atom_collection_set_atoms</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> capacity, <a class="code" href="structAtom.html">Atom</a> *atoms[]);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structAtom.html">   14</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">int</span> id;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">double</span> position[3];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <a class="code" href="structAtom.html">Atom</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<a class="code" href="structAtom.html">Atom</a> *<a class="code" href="atom_8h.html#a9553ab7d894de5b0ce3fde0c250bf980">atom_new</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">double</span> position[3]);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a919ec09fd9a06a48c23844b93c1ab5fc">atom_free</a>(<a class="code" href="structAtom.html">Atom</a> *ptr);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="atom_8h.html#a57d84fa77cf9936b1864e37956bc4fdd">atom_get_id</a>(<a class="code" href="structAtom.html">Atom</a> *ptr);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#aa1ecb74ecc8c578a41869d2d36dc47e0">atom_set_id</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ad69f13ed91f0738fe850d919d4de2e43">atom_get_position</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">double</span> out[3]);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ab34a67e02710340b461d9528ad38c610">atom_set_position</a>(<a class="code" href="structAtom.html">Atom</a> *ptr, <span class="keywordtype">double</span> position[3]);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="structAtomCollection.html">   75</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">double</span> basis[3][3];</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">size_t</span> length;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">size_t</span> capacity;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">size_t</span> size;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="structAtom.html">Atom</a> *atoms[];</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <a class="code" href="structAtomCollection.html">AtomCollection</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<a class="code" href="structAtomCollection.html">AtomCollection</a> *<a class="code" href="atom_8h.html#a73dad4efab7017afdf1020e90a7fca57">atom_collection_new</a>(<span class="keywordtype">double</span> basis[3][3], <span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> capacity, <a class="code" href="structAtom.html">Atom</a> *atoms[]);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ad469757fde1f9f0f6542df87d685b981">atom_collection_free</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a5ee5d6bebb875b4106de0eb4aaf2ebbf">atom_collection_get_basis</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">double</span> out[3][3]);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a1cae5133a1741ee1a85b0baa27063376">atom_collection_set_basis</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">double</span> basis[3][3]);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#a9ec862777af7dad02203fcde6e198aa1">atom_collection_get_atoms</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <a class="code" href="structAtom.html">Atom</a> *out[]);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ae77629adb03d27793809a01dfc0a3517">atom_collection_set_atoms</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> capacity, <a class="code" href="structAtom.html">Atom</a> *atoms[]);</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aatom_8h_html_a9553ab7d894de5b0ce3fde0c250bf980"><div class="ttname"><a href="atom_8h.html#a9553ab7d894de5b0ce3fde0c250bf980">atom_new</a></div><div class="ttdeci">Atom * atom_new(int id, double position[3])</div><div class="ttdef"><b>Definition:</b> atom.c:6</div></div>
 <div class="ttc" id="aatom_8h_html_a9ec862777af7dad02203fcde6e198aa1"><div class="ttname"><a href="atom_8h.html#a9ec862777af7dad02203fcde6e198aa1">atom_collection_get_atoms</a></div><div class="ttdeci">void atom_collection_get_atoms(AtomCollection *ptr, Atom *out[])</div><div class="ttdef"><b>Definition:</b> atom.c:91</div></div>
-<div class="ttc" id="astructAtom_html"><div class="ttname"><a href="structAtom.html">Atom</a></div><div class="ttdef"><b>Definition:</b> atom.h:13</div></div>
+<div class="ttc" id="astructAtom_html"><div class="ttname"><a href="structAtom.html">Atom</a></div><div class="ttdef"><b>Definition:</b> atom.h:15</div></div>
 <div class="ttc" id="aatom_8h_html_a919ec09fd9a06a48c23844b93c1ab5fc"><div class="ttname"><a href="atom_8h.html#a919ec09fd9a06a48c23844b93c1ab5fc">atom_free</a></div><div class="ttdeci">void atom_free(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:14</div></div>
 <div class="ttc" id="aatom_8h_html_ad469757fde1f9f0f6542df87d685b981"><div class="ttname"><a href="atom_8h.html#ad469757fde1f9f0f6542df87d685b981">atom_collection_free</a></div><div class="ttdeci">void atom_collection_free(AtomCollection *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:60</div></div>
 <div class="ttc" id="aatom_8h_html_a57d84fa77cf9936b1864e37956bc4fdd"><div class="ttname"><a href="atom_8h.html#a57d84fa77cf9936b1864e37956bc4fdd">atom_get_id</a></div><div class="ttdeci">int atom_get_id(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:19</div></div>
@@ -105,7 +107,7 @@ $(function() {
 <div class="ttc" id="aatom_8h_html_ad69f13ed91f0738fe850d919d4de2e43"><div class="ttname"><a href="atom_8h.html#ad69f13ed91f0738fe850d919d4de2e43">atom_get_position</a></div><div class="ttdeci">void atom_get_position(Atom *ptr, double out[3])</div><div class="ttdef"><b>Definition:</b> atom.c:29</div></div>
 <div class="ttc" id="aatom_8h_html_a1cae5133a1741ee1a85b0baa27063376"><div class="ttname"><a href="atom_8h.html#a1cae5133a1741ee1a85b0baa27063376">atom_collection_set_basis</a></div><div class="ttdeci">void atom_collection_set_basis(AtomCollection *ptr, double basis[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:80</div></div>
 <div class="ttc" id="aatom_8h_html_a73dad4efab7017afdf1020e90a7fca57"><div class="ttname"><a href="atom_8h.html#a73dad4efab7017afdf1020e90a7fca57">atom_collection_new</a></div><div class="ttdeci">AtomCollection * atom_collection_new(double basis[3][3], size_t length, size_t capacity, Atom *atoms[])</div><div class="ttdef"><b>Definition:</b> atom.c:45</div></div>
-<div class="ttc" id="astructAtomCollection_html"><div class="ttname"><a href="structAtomCollection.html">AtomCollection</a></div><div class="ttdef"><b>Definition:</b> atom.h:74</div></div>
+<div class="ttc" id="astructAtomCollection_html"><div class="ttname"><a href="structAtomCollection.html">AtomCollection</a></div><div class="ttdef"><b>Definition:</b> atom.h:76</div></div>
 <div class="ttc" id="aatom_8h_html_a5ee5d6bebb875b4106de0eb4aaf2ebbf"><div class="ttname"><a href="atom_8h.html#a5ee5d6bebb875b4106de0eb4aaf2ebbf">atom_collection_get_basis</a></div><div class="ttdeci">void atom_collection_get_basis(AtomCollection *ptr, double out[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:69</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

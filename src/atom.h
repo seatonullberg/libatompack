@@ -3,6 +3,8 @@
  * @brief This file contains low level primitives for building atomic structures.
 */
 
+#include <stdlib.h>
+
 /**
  * Primitive representation of an atom.
  * 

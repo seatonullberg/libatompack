@@ -1,7 +1,3 @@
-#include "tests.h"
+#include "utest.h"
 
-int main(int argc, char **argv)
-{
-    run_all();
-    return 0;
-}
+UTEST_MAIN();

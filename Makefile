@@ -1,7 +1,10 @@
-.DEFAULT_GOAL := shared
+INCLUDE=-Ideps/rmsd -Ideps/utest.h
+
+all:
+	@make shared
 
 clean:
-	@rm -rf ./bin
+	@rm -rf bin
 
 document:
 	@rm -rf docs
@@ -10,10 +13,10 @@ document:
 	@rm -rf docs/html
 
 shared:
-	@mkdir -p ./bin
-	@gcc -fPIC -shared -o ./bin/libatompack.so ./src/*.c
+	@mkdir -p bin
+	@gcc $(INCLUDE) -fPIC -shared -o bin/libatompack.so src/*.c
 
 test:
-	@gcc -lm -o testatompack ./src/*.c
-	@./testatompack
-	@rm ./testatompack
+	@gcc $(INCLUDE) -lm -o atompack src/*.c
+	@./atompack
+	@rm atompack
