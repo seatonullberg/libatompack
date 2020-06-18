@@ -1,30 +1,31 @@
-void polyhedron_vertices(double poly[3][3], double out[8][3])
+void parallelepiped_vertices(double para[3][3], double out[8][3])
 {
     double origin[3] = {0.0, 0.0, 0.0};
-    double x[3] = {poly[0][0], poly[0][1], poly[0][2]};
-    double y[3] = {poly[1][0], poly[1][1], poly[1][2]};
-    double z[3] = {poly[2][0], poly[2][1], poly[2][2]};
+    double x[3] = {para[0][0], para[0][1], para[0][2]};
+    double y[3] = {para[1][0], para[1][1], para[1][2]};
+    double z[3] = {para[2][0], para[2][1], para[2][2]};
     double xy[3] = {
-        poly[0][0] + poly[1][0],
-        poly[0][1] + poly[1][1],
-        poly[0][2] + poly[1][2],
+        para[0][0] + para[1][0],
+        para[0][1] + para[1][1],
+        para[0][2] + para[1][2],
     };
     double xz[3] = {
-        poly[0][0] + poly[2][0],
-        poly[0][1] + poly[2][1],
-        poly[0][2] + poly[2][2],
+        para[0][0] + para[2][0],
+        para[0][1] + para[2][1],
+        para[0][2] + para[2][2],
     };
     double yz[3] = {
-        poly[1][0] + poly[2][0],
-        poly[1][1] + poly[2][1],
-        poly[1][2] + poly[2][2],
+        para[1][0] + para[2][0],
+        para[1][1] + para[2][1],
+        para[1][2] + para[2][2],
     };
     double xyz[3] = {
-        poly[0][0] + poly[1][0] + poly[2][0],
-        poly[0][1] + poly[1][1] + poly[2][1],
-        poly[0][2] + poly[1][2] + poly[2][2],
+        para[0][0] + para[1][0] + para[2][0],
+        para[0][1] + para[1][1] + para[2][1],
+        para[0][2] + para[1][2] + para[2][2],
     };
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++)
+    {
         out[0][i] = origin[i];
         out[1][i] = x[i];
         out[2][i] = y[i];
@@ -36,10 +37,12 @@ void polyhedron_vertices(double poly[3][3], double out[8][3])
     }
 }
 
-void polyhedron_faces(double poly[3][3], double out[6][3][3]) {
+void parallelepiped_faces(double para[3][3], double out[6][3][3])
+{
     double verts[8][3];
-    polyhedron_vertices(poly, verts);
-    for (int i = 0; i < 3; i++) {
+    parallelepiped_vertices(para, verts);
+    for (int i = 0; i < 3; i++)
+    {
         // lower xy
         out[0][0][i] = verts[4][i];
         out[0][1][i] = verts[1][i];

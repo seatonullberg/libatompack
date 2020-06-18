@@ -9,6 +9,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -86,20 +93,20 @@ $(function() {
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="atom_8h.html#ae77629adb03d27793809a01dfc0a3517">atom_collection_set_atoms</a>(<a class="code" href="structAtomCollection.html">AtomCollection</a> *ptr, <span class="keywordtype">size_t</span> length, <span class="keywordtype">size_t</span> capacity, <a class="code" href="structAtom.html">Atom</a> *atoms[]);</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aatom_8h_html_a9553ab7d894de5b0ce3fde0c250bf980"><div class="ttname"><a href="atom_8h.html#a9553ab7d894de5b0ce3fde0c250bf980">atom_new</a></div><div class="ttdeci">Atom * atom_new(int id, double position[3])</div><div class="ttdef"><b>Definition:</b> atom.c:5</div></div>
-<div class="ttc" id="aatom_8h_html_a9ec862777af7dad02203fcde6e198aa1"><div class="ttname"><a href="atom_8h.html#a9ec862777af7dad02203fcde6e198aa1">atom_collection_get_atoms</a></div><div class="ttdeci">void atom_collection_get_atoms(AtomCollection *ptr, Atom *out[])</div><div class="ttdef"><b>Definition:</b> atom.c:90</div></div>
+<div class="ttc" id="aatom_8h_html_a9553ab7d894de5b0ce3fde0c250bf980"><div class="ttname"><a href="atom_8h.html#a9553ab7d894de5b0ce3fde0c250bf980">atom_new</a></div><div class="ttdeci">Atom * atom_new(int id, double position[3])</div><div class="ttdef"><b>Definition:</b> atom.c:6</div></div>
+<div class="ttc" id="aatom_8h_html_a9ec862777af7dad02203fcde6e198aa1"><div class="ttname"><a href="atom_8h.html#a9ec862777af7dad02203fcde6e198aa1">atom_collection_get_atoms</a></div><div class="ttdeci">void atom_collection_get_atoms(AtomCollection *ptr, Atom *out[])</div><div class="ttdef"><b>Definition:</b> atom.c:91</div></div>
 <div class="ttc" id="astructAtom_html"><div class="ttname"><a href="structAtom.html">Atom</a></div><div class="ttdef"><b>Definition:</b> atom.h:13</div></div>
-<div class="ttc" id="aatom_8h_html_a919ec09fd9a06a48c23844b93c1ab5fc"><div class="ttname"><a href="atom_8h.html#a919ec09fd9a06a48c23844b93c1ab5fc">atom_free</a></div><div class="ttdeci">void atom_free(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:13</div></div>
-<div class="ttc" id="aatom_8h_html_ad469757fde1f9f0f6542df87d685b981"><div class="ttname"><a href="atom_8h.html#ad469757fde1f9f0f6542df87d685b981">atom_collection_free</a></div><div class="ttdeci">void atom_collection_free(AtomCollection *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:59</div></div>
-<div class="ttc" id="aatom_8h_html_a57d84fa77cf9936b1864e37956bc4fdd"><div class="ttname"><a href="atom_8h.html#a57d84fa77cf9936b1864e37956bc4fdd">atom_get_id</a></div><div class="ttdeci">int atom_get_id(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:18</div></div>
-<div class="ttc" id="aatom_8h_html_ab34a67e02710340b461d9528ad38c610"><div class="ttname"><a href="atom_8h.html#ab34a67e02710340b461d9528ad38c610">atom_set_position</a></div><div class="ttdeci">void atom_set_position(Atom *ptr, double position[3])</div><div class="ttdef"><b>Definition:</b> atom.c:36</div></div>
-<div class="ttc" id="aatom_8h_html_ae77629adb03d27793809a01dfc0a3517"><div class="ttname"><a href="atom_8h.html#ae77629adb03d27793809a01dfc0a3517">atom_collection_set_atoms</a></div><div class="ttdeci">void atom_collection_set_atoms(AtomCollection *ptr, size_t length, size_t capacity, Atom *atoms[])</div><div class="ttdef"><b>Definition:</b> atom.c:98</div></div>
-<div class="ttc" id="aatom_8h_html_aa1ecb74ecc8c578a41869d2d36dc47e0"><div class="ttname"><a href="atom_8h.html#aa1ecb74ecc8c578a41869d2d36dc47e0">atom_set_id</a></div><div class="ttdeci">void atom_set_id(Atom *ptr, int id)</div><div class="ttdef"><b>Definition:</b> atom.c:23</div></div>
-<div class="ttc" id="aatom_8h_html_ad69f13ed91f0738fe850d919d4de2e43"><div class="ttname"><a href="atom_8h.html#ad69f13ed91f0738fe850d919d4de2e43">atom_get_position</a></div><div class="ttdeci">void atom_get_position(Atom *ptr, double out[3])</div><div class="ttdef"><b>Definition:</b> atom.c:28</div></div>
-<div class="ttc" id="aatom_8h_html_a1cae5133a1741ee1a85b0baa27063376"><div class="ttname"><a href="atom_8h.html#a1cae5133a1741ee1a85b0baa27063376">atom_collection_set_basis</a></div><div class="ttdeci">void atom_collection_set_basis(AtomCollection *ptr, double basis[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:79</div></div>
-<div class="ttc" id="aatom_8h_html_a73dad4efab7017afdf1020e90a7fca57"><div class="ttname"><a href="atom_8h.html#a73dad4efab7017afdf1020e90a7fca57">atom_collection_new</a></div><div class="ttdeci">AtomCollection * atom_collection_new(double basis[3][3], size_t length, size_t capacity, Atom *atoms[])</div><div class="ttdef"><b>Definition:</b> atom.c:44</div></div>
+<div class="ttc" id="aatom_8h_html_a919ec09fd9a06a48c23844b93c1ab5fc"><div class="ttname"><a href="atom_8h.html#a919ec09fd9a06a48c23844b93c1ab5fc">atom_free</a></div><div class="ttdeci">void atom_free(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:14</div></div>
+<div class="ttc" id="aatom_8h_html_ad469757fde1f9f0f6542df87d685b981"><div class="ttname"><a href="atom_8h.html#ad469757fde1f9f0f6542df87d685b981">atom_collection_free</a></div><div class="ttdeci">void atom_collection_free(AtomCollection *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:60</div></div>
+<div class="ttc" id="aatom_8h_html_a57d84fa77cf9936b1864e37956bc4fdd"><div class="ttname"><a href="atom_8h.html#a57d84fa77cf9936b1864e37956bc4fdd">atom_get_id</a></div><div class="ttdeci">int atom_get_id(Atom *ptr)</div><div class="ttdef"><b>Definition:</b> atom.c:19</div></div>
+<div class="ttc" id="aatom_8h_html_ab34a67e02710340b461d9528ad38c610"><div class="ttname"><a href="atom_8h.html#ab34a67e02710340b461d9528ad38c610">atom_set_position</a></div><div class="ttdeci">void atom_set_position(Atom *ptr, double position[3])</div><div class="ttdef"><b>Definition:</b> atom.c:37</div></div>
+<div class="ttc" id="aatom_8h_html_ae77629adb03d27793809a01dfc0a3517"><div class="ttname"><a href="atom_8h.html#ae77629adb03d27793809a01dfc0a3517">atom_collection_set_atoms</a></div><div class="ttdeci">void atom_collection_set_atoms(AtomCollection *ptr, size_t length, size_t capacity, Atom *atoms[])</div><div class="ttdef"><b>Definition:</b> atom.c:99</div></div>
+<div class="ttc" id="aatom_8h_html_aa1ecb74ecc8c578a41869d2d36dc47e0"><div class="ttname"><a href="atom_8h.html#aa1ecb74ecc8c578a41869d2d36dc47e0">atom_set_id</a></div><div class="ttdeci">void atom_set_id(Atom *ptr, int id)</div><div class="ttdef"><b>Definition:</b> atom.c:24</div></div>
+<div class="ttc" id="aatom_8h_html_ad69f13ed91f0738fe850d919d4de2e43"><div class="ttname"><a href="atom_8h.html#ad69f13ed91f0738fe850d919d4de2e43">atom_get_position</a></div><div class="ttdeci">void atom_get_position(Atom *ptr, double out[3])</div><div class="ttdef"><b>Definition:</b> atom.c:29</div></div>
+<div class="ttc" id="aatom_8h_html_a1cae5133a1741ee1a85b0baa27063376"><div class="ttname"><a href="atom_8h.html#a1cae5133a1741ee1a85b0baa27063376">atom_collection_set_basis</a></div><div class="ttdeci">void atom_collection_set_basis(AtomCollection *ptr, double basis[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:80</div></div>
+<div class="ttc" id="aatom_8h_html_a73dad4efab7017afdf1020e90a7fca57"><div class="ttname"><a href="atom_8h.html#a73dad4efab7017afdf1020e90a7fca57">atom_collection_new</a></div><div class="ttdeci">AtomCollection * atom_collection_new(double basis[3][3], size_t length, size_t capacity, Atom *atoms[])</div><div class="ttdef"><b>Definition:</b> atom.c:45</div></div>
 <div class="ttc" id="astructAtomCollection_html"><div class="ttname"><a href="structAtomCollection.html">AtomCollection</a></div><div class="ttdef"><b>Definition:</b> atom.h:74</div></div>
-<div class="ttc" id="aatom_8h_html_a5ee5d6bebb875b4106de0eb4aaf2ebbf"><div class="ttname"><a href="atom_8h.html#a5ee5d6bebb875b4106de0eb4aaf2ebbf">atom_collection_get_basis</a></div><div class="ttdeci">void atom_collection_get_basis(AtomCollection *ptr, double out[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:68</div></div>
+<div class="ttc" id="aatom_8h_html_a5ee5d6bebb875b4106de0eb4aaf2ebbf"><div class="ttname"><a href="atom_8h.html#a5ee5d6bebb875b4106de0eb4aaf2ebbf">atom_collection_get_basis</a></div><div class="ttdeci">void atom_collection_get_basis(AtomCollection *ptr, double out[3][3])</div><div class="ttdef"><b>Definition:</b> atom.c:69</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

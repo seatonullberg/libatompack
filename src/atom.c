@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "atom.h"
+#include "errors.h"
 
 Atom *atom_new(int id, double position[3])
 {
@@ -116,3 +117,7 @@ void atom_collection_set_atoms(AtomCollection *ptr, size_t length, size_t capaci
     ptr->length = length;
     ptr->capacity = capacity;
 }
+
+// ERROR_CODE atom_collection_insert(AtomCollection *ptr, Atom *atom) {
+
+// }

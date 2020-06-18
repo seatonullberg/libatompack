@@ -3,3 +3,4 @@ INPUT            = src
 OUTPUT_DIRECTORY = docs
 GENERATE_LATEX   = NO
 SEARCHENGINE     = NO
+USE_MATHJAX      = YES

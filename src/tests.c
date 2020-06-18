@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include "atom.h"
 #include "constants.h"
-#include "linalg.h"
+#include "crystal.h"
 #include "tests.h"
 #include "util.h"
 
-/*
-    `atom` module tests
-*/
+/**************************
+    `atom` module tests    
+***************************/
 
 bool test_atom_new()
 {
@@ -77,9 +77,39 @@ struct test atom_tests[] = {
     {test_atom_collection_new, "test_atom_collection_new"},
 };
 
-/*
-    `linalg` module tests
-*/
+/*****************************                     
+    `crystal` module tests    
+******************************/
+
+bool test_metric_tensor()
+{
+    bool test;
+
+    double a, b, c, alpha, beta, gamma;
+    a = 2.0;
+    b = 2.0;
+    c = 2.0;
+    alpha = PI / 2.0;
+    beta = PI / 2.0;
+    gamma = PI / 2.0;
+    double m[3][3];
+    metric_tensor(a, b, c, alpha, beta, gamma, m);
+
+    test = (m[0][0] == 4.0);
+    test = test && (m[1][1] == 4.0);
+    test = test && (m[2][2] == 4.0);
+
+    return test;
+}
+
+#define N_CRYSTAL_TESTS 1
+struct test crystal_tests[] = {
+    {test_metric_tensor, "test_metric_tensor"},
+};
+
+/**************************
+    `util` module tests
+***************************/
 
 bool test_angle()
 {
@@ -128,42 +158,12 @@ bool test_norm()
     return test;
 }
 
-#define N_LINALG_TESTS 4
-struct test linalg_tests[] = {
+#define N_UTIL_TESTS 4
+struct test util_tests[] = {
     {test_angle, "test_angle"},
     {test_dot, "test_dot"},
     {test_euclidean, "test_euclidean"},
     {test_norm, "test_norm"},
-};
-
-/*
-    `util` module tests
-*/
-
-bool test_metric_tensor()
-{
-    bool test;
-
-    double a, b, c, alpha, beta, gamma;
-    a = 2.0;
-    b = 2.0;
-    c = 2.0;
-    alpha = PI / 2.0;
-    beta = PI / 2.0;
-    gamma = PI / 2.0;
-    double m[3][3];
-    metric_tensor(a, b, c, alpha, beta, gamma, m);
-
-    test = (m[0][0] == 4.0);
-    test = test && (m[1][1] == 4.0);
-    test = test && (m[2][2] == 4.0);
-
-    return test;
-}
-
-#define N_UTIL_TESTS 1
-struct test util_tests[] = {
-    {test_metric_tensor, "test_metric_tensor"},
 };
 
 /* Testing Setup.
@@ -220,6 +220,6 @@ void run_tests(struct test tests[], int n_tests)
 void run_all()
 {
     run_tests(atom_tests, N_ATOM_TESTS);
-    run_tests(linalg_tests, N_LINALG_TESTS);
+    run_tests(crystal_tests, N_CRYSTAL_TESTS);
     run_tests(util_tests, N_UTIL_TESTS);
 }

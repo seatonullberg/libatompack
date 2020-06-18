@@ -1,3 +1,6 @@
 #include <stdlib.h>
 
-void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3]);
+double angle(double a[], double b[], size_t N);
+double dot(double a[], double b[], size_t N);
+double euclidean(double a[], double b[], size_t N);
+double norm(double a[], size_t N);

@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief This file contains low level primitives for atomic structures.
+ * @brief This file contains low level primitives for building atomic structures.
 */
 
 /**
@@ -46,7 +46,7 @@ int atom_get_id(Atom *ptr);
 void atom_set_id(Atom *ptr, int id);
 
 /**
- * Returns the `position` parameter.
+ * Populates an array with a copy of the `position` parameter.
  * 
  * @param ptr A pointer to an `Atom`.
  * @param out The array into which `position` is copied.
@@ -97,7 +97,7 @@ AtomCollection *atom_collection_new(double basis[3][3], size_t length, size_t ca
 void atom_collection_free(AtomCollection *ptr);
 
 /**
- * Returns the `basis` parameter
+ * Populates an array with a copy of the `basis` parameter
  * 
  * @param ptr A pointer to an `AtomCollection`.
  * @param out The output array into which `basis` is copied.
@@ -113,7 +113,7 @@ void atom_collection_get_basis(AtomCollection *ptr, double out[3][3]);
 void atom_collection_set_basis(AtomCollection *ptr, double basis[3][3]);
 
 /**
- * Returns the `atoms` parameter.
+ * Populates an array with a copy of the `atoms` parameter.
  * 
  * @param ptr A pointer to an `AtomCollection`.
  * @param out The output array into which `atoms` is copied. 
