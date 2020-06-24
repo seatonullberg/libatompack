@@ -53,12 +53,14 @@ $(function() {
 <div class="title">util.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keywordtype">double</span> angle(<span class="keywordtype">double</span> a[], <span class="keywordtype">double</span> b[], <span class="keywordtype">size_t</span> N);</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">double</span> dot(<span class="keywordtype">double</span> a[], <span class="keywordtype">double</span> b[], <span class="keywordtype">size_t</span> N);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">double</span> euclidean(<span class="keywordtype">double</span> a[], <span class="keywordtype">double</span> b[], <span class="keywordtype">size_t</span> N);</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">double</span> norm(<span class="keywordtype">double</span> a[], <span class="keywordtype">size_t</span> N);</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keywordtype">void</span> add(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3], <span class="keywordtype">double</span> out[3]);</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keywordtype">double</span> angle(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3]);</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keywordtype">double</span> cross(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3], <span class="keywordtype">double</span> out[3]);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keywordtype">void</span> div_scalar(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> out[3]);</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">double</span> dot(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3]);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keywordtype">double</span> euclidean(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3]);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keywordtype">double</span> norm(<span class="keywordtype">double</span> a[3]);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> sub(<span class="keywordtype">double</span> a[3], <span class="keywordtype">double</span> b[3], <span class="keywordtype">double</span> out[3]);</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
