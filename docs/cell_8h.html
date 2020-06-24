@@ -56,144 +56,32 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains functions which operate on 3x3 matrix representations of parallelepiped cells.  
+<p>This file contains functions which operate on or produce a 3x3 matrix representation of a parallelepiped cell.  
 <a href="#details">More...</a></p>
 
 <p><a href="cell_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6229bacc2ffc47aa333ce2a6a522fd8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#a6229bacc2ffc47aa333ce2a6a522fd8f">cell_vertices</a> (double cell[3][3], double out[8][3])</td></tr>
-<tr class="separator:a6229bacc2ffc47aa333ce2a6a522fd8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc7c42ed5d8ad1404f6bda0bb34097d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#abc7c42ed5d8ad1404f6bda0bb34097d4">cell_faces</a> (double cell[3][3], double out[6][3][3])</td></tr>
-<tr class="separator:abc7c42ed5d8ad1404f6bda0bb34097d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad29d76172a82396b9163666089be80df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#ad29d76172a82396b9163666089be80df">cell_normals</a> (double cell[3][3], double out[6][3])</td></tr>
-<tr class="separator:ad29d76172a82396b9163666089be80df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a896baa66ecdf5b5c62460ce1e6f582e8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#a896baa66ecdf5b5c62460ce1e6f582e8">is_point_in_cell</a> (double point[3], double cell[3][3], double tolerance)</td></tr>
-<tr class="separator:a896baa66ecdf5b5c62460ce1e6f582e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0def865cef171495f7d3504d1ce2086"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#af0def865cef171495f7d3504d1ce2086">is_position_in_cell</a> (double position[3], double cell[3][3], double tolerance)</td></tr>
+<tr class="separator:af0def865cef171495f7d3504d1ce2086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45933c23c6e8527a87c40933f653b33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#aa45933c23c6e8527a87c40933f653b33">metric_tensor</a> (double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])</td></tr>
+<tr class="separator:aa45933c23c6e8527a87c40933f653b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains functions which operate on 3x3 matrix representations of parallelepiped cells. </p>
+<div class="textblock"><p>This file contains functions which operate on or produce a 3x3 matrix representation of a parallelepiped cell. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="abc7c42ed5d8ad1404f6bda0bb34097d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc7c42ed5d8ad1404f6bda0bb34097d4">&#9670;&nbsp;</a></span>cell_faces()</h2>
+<a id="af0def865cef171495f7d3504d1ce2086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0def865cef171495f7d3504d1ce2086">&#9670;&nbsp;</a></span>is_position_in_cell()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void cell_faces </td>
+          <td class="memname">int is_position_in_cell </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>cell</em>[3][3], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>out</em>[6][3][3]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Populates an array with the faces of a given cell with an array of 3 points representing each face.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cell</td><td>A 3x3 matrix representation of the cell. </td></tr>
-    <tr><td class="paramname">out</td><td>The array into which the faces are copied. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad29d76172a82396b9163666089be80df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad29d76172a82396b9163666089be80df">&#9670;&nbsp;</a></span>cell_normals()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cell_normals </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>cell</em>[3][3], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>out</em>[6][3]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Populates an array with the normal vectors of a given cell.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cell</td><td>A 3x3 matrix representation of a given cell. </td></tr>
-    <tr><td class="paramname">out</td><td>The array into which the normal vectors are copied. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6229bacc2ffc47aa333ce2a6a522fd8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6229bacc2ffc47aa333ce2a6a522fd8f">&#9670;&nbsp;</a></span>cell_vertices()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void cell_vertices </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>cell</em>[3][3], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>out</em>[8][3]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Populates an array with the vertices of a given cell.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cell</td><td>A 3X3 matrix representation of the cell. </td></tr>
-    <tr><td class="paramname">out</td><td>The array into which the vertices are copied. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a896baa66ecdf5b5c62460ce1e6f582e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a896baa66ecdf5b5c62460ce1e6f582e8">&#9670;&nbsp;</a></span>is_point_in_cell()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int is_point_in_cell </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>point</em>[3], </td>
+          <td class="paramname"><em>position</em>[3], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -214,12 +102,83 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns 1 if the point is within the cell else 0.</p>
+<p>Returns 1 if the position is within the cell else 0.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>The point to test. </td></tr>
-    <tr><td class="paramname">cell</td><td>The cell to consider. </td></tr>
+    <tr><td class="paramname">position</td><td>The position. </td></tr>
+    <tr><td class="paramname">cell</td><td>The cell. </td></tr>
     <tr><td class="paramname">tolerance</td><td>The radius of tolerance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa45933c23c6e8527a87c40933f653b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45933c23c6e8527a87c40933f653b33">&#9670;&nbsp;</a></span>metric_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void metric_tensor </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>out</em>[3][3]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Populates a 3x3 matrix with the metric tensor for a given set of lattice parameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>The \(a\) distance parameter. </td></tr>
+    <tr><td class="paramname">b</td><td>The \(b\) distance parameter. </td></tr>
+    <tr><td class="paramname">c</td><td>The \(c\) distance parameter. </td></tr>
+    <tr><td class="paramname">alpha</td><td>The \(\alpha\) angle parameter (in radians). </td></tr>
+    <tr><td class="paramname">beta</td><td>The \(\beta\) angle parameter (in radians). </td></tr>
+    <tr><td class="paramname">gamma</td><td>The \(\gamma\) angle parameter (in radians). </td></tr>
+    <tr><td class="paramname">out</td><td>The output array into which the metric tensor is copied. </td></tr>
   </table>
   </dd>
 </dl>
