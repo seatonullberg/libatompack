@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <math.h>
 #include "util.h"
 
@@ -90,7 +89,7 @@ void cell_normals(double cell[3][3], double out[6][3])
     }
 }
 
-int is_point_in_cell(double point[3], double cell[3][3], double tolerance)
+int is_position_in_cell(double position[3], double cell[3][3], double tolerance)
 {
     double faces[6][3][3];
     cell_faces(cell, faces);
@@ -101,7 +100,7 @@ int is_point_in_cell(double point[3], double cell[3][3], double tolerance)
 
     for (int i = 0; i < 6; i++)
     {
-        sub(faces[i][0], point, p2f);
+        sub(faces[i][0], position, p2f);
         p2f_norm = norm(p2f);
         div_scalar(normals[i], p2f_norm, reduced_normal);
         d = dot(p2f, reduced_normal);
@@ -111,4 +110,17 @@ int is_point_in_cell(double point[3], double cell[3][3], double tolerance)
         }
     }
     return 1; // true
+}
+
+void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])
+{
+    out[0][0] = a * a;
+    out[0][1] = a * b * cos(gamma);
+    out[0][2] = a * c * cos(beta);
+    out[1][0] = a * b * cos(gamma);
+    out[1][1] = b * b;
+    out[1][2] = b * c * cos(alpha);
+    out[2][0] = a * c * cos(beta);
+    out[2][1] = b * c * cos(alpha);
+    out[2][2] = c * c;
 }

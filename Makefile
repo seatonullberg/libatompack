@@ -17,6 +17,6 @@ shared:
 	@gcc $(INCLUDE) -fPIC -shared -o bin/libatompack.so src/*.c
 
 test:
-	@gcc $(INCLUDE) -lm -o atompack src/*.c
-	@./atompack
-	@rm atompack
+	@gcc $(INCLUDE) -Isrc -lm -o libatompack-tests src/*.c tests/*.c
+	@./libatompack-tests
+	@rm libatompack-tests

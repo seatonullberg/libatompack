@@ -1,0 +1,56 @@
+#include "cell.h"
+#include "constants.h"
+#include "utest.h"
+
+UTEST(CellTests, test_metric_tensor)
+{
+    double a, b, c, alpha, beta, gamma;
+    a = 2.0;
+    b = 2.0;
+    c = 2.0;
+    alpha = PI / 2.0;
+    beta = PI / 2.0;
+    gamma = PI / 2.0;
+    double m[3][3];
+    metric_tensor(a, b, c, alpha, beta, gamma, m);
+
+    EXPECT_EQ(m[0][0], 4.0);
+    EXPECT_EQ(m[1][1], 4.0);
+    EXPECT_EQ(m[2][2], 4.0);
+}
+
+UTEST(CellTests, test_is_position_in_cell_inside)
+{
+    double position[3] = {0.5, 0.5, 0.5};
+    double cell[3][3] = {
+        {1.0, 0.0, 0.0},
+        {0.0, 1.0, 0.0},
+        {0.0, 0.0, 1.0},
+    };
+    double tolerance = 1.0e-6;
+    ASSERT_TRUE(is_position_in_cell(position, cell, tolerance));
+}
+
+UTEST(CellTests, test_is_position_in_cell_surface)
+{
+    double position[3] = {0.5, 0.5, 1.0};
+    double cell[3][3] = {
+        {1.0, 0.0, 0.0},
+        {0.0, 1.0, 0.0},
+        {0.0, 0.0, 1.0},
+    };
+    double tolerance = 1.0e-6;
+    ASSERT_TRUE(is_position_in_cell(position, cell, tolerance));
+}
+
+UTEST(CellTests, test_is_position_in_cell_outside)
+{
+    double position[3] = {1.5, 1.5, 1.5};
+    double cell[3][3] = {
+        {1.0, 0.0, 0.0},
+        {0.0, 1.0, 0.0},
+        {0.0, 0.0, 1.0},
+    };
+    double tolerance = 1.0e-6;
+    ASSERT_FALSE(is_position_in_cell(position, cell, tolerance));
+}
