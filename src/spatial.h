@@ -1,4 +1,9 @@
 /**
+ * @file
+ * @brief This file contains functions which operate on bounded point clouds.
+*/
+
+/**
  * Populates an array with the periodic transformation of a position in a cell.
  * 
  * @param position The initial position.
