@@ -6,3 +6,6 @@ Package `rmsd` provides an implementation of the [Kabasch algorithm](https://en.
 
 ## utest.h
 Package `utest.h` is the unit testing framework used in this project. This package is licensed under the [Unlicense](utest.h/LICENSE) and was originally sourced from https://github.com/sheredom/utest.h.git.
+
+## vector.h
+Package `vector.h` provides an implementation of a dynamically sized array of elements. This package is licensed under the [MIT License](vector.h/LICENSE) and was originally sourced from https://github.com/seatonullberg/vector.h.
