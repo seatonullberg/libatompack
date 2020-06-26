@@ -89,7 +89,7 @@ void cell_normals(double cell[3][3], double out[6][3])
     }
 }
 
-int is_position_in_cell(double position[3], double cell[3][3], double tolerance)
+int cell_contains(double cell[3][3], double position[3], double tolerance)
 {
     double faces[6][3][3];
     cell_faces(cell, faces);
@@ -112,6 +112,17 @@ int is_position_in_cell(double position[3], double cell[3][3], double tolerance)
     return 1; // true
 }
 
+/**
+ * Populates a 3x3 matrix with the metric tensor for a given set of lattice parameters.
+ * 
+ * @param a The \\(a\\) distance parameter.
+ * @param b The \\(b\\) distance parameter.
+ * @param c The \\(c\\) distance parameter.
+ * @param alpha The \\(\alpha\\) angle parameter (in radians).
+ * @param beta The \\(\beta\\) angle parameter (in radians).
+ * @param gamma The \\(\gamma\\) angle parameter (in radians).
+ * @param out The output array into which the metric tensor is copied.
+*/
 void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])
 {
     out[0][0] = a * a;

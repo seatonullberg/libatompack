@@ -1,7 +1,7 @@
-#include "spatial.h"
+#include "nearest.h"
 #include "utest.h"
 
-UTEST(SpatialTests, test_nearest_neighbor)
+UTEST(NearestTests, test_nearest_neighbor)
 {
     double position[3] = {0.0, 0.0, 0.0};
     double positions[][3] = {
@@ -21,7 +21,7 @@ UTEST(SpatialTests, test_nearest_neighbor)
     ASSERT_EQ(nearest_neighbor(position, positions, length, cell, periodicity, tolerance), 2);
 }
 
-UTEST(SpatialTests, test_periodic_image)
+UTEST(NearestTests, test_periodic_image)
 {
     double position[3] = {1.75, 1.75, 0.25};
     double cell[3][3] = {
@@ -39,7 +39,7 @@ UTEST(SpatialTests, test_periodic_image)
     EXPECT_EQ(out[2], 0.25);
 }
 
-UTEST(SpatialTests, test_reduced_periodic_image)
+UTEST(NearestTests, test_reduced_periodic_image)
 {
     double position[3] = {1.75, 1.75, 0.25};
     double cell[3][3] = {

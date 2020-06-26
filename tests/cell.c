@@ -19,7 +19,7 @@ UTEST(CellTests, test_metric_tensor)
     EXPECT_EQ(m[2][2], 4.0);
 }
 
-UTEST(CellTests, test_is_position_in_cell_inside)
+UTEST(CellTests, test_cell_contains_inside)
 {
     double position[3] = {0.5, 0.5, 0.5};
     double cell[3][3] = {
@@ -28,10 +28,10 @@ UTEST(CellTests, test_is_position_in_cell_inside)
         {0.0, 0.0, 1.0},
     };
     double tolerance = 1.0e-6;
-    ASSERT_TRUE(is_position_in_cell(position, cell, tolerance));
+    ASSERT_TRUE(cell_contains(cell, position, tolerance));
 }
 
-UTEST(CellTests, test_is_position_in_cell_surface)
+UTEST(CellTests, test_cell_contains_surface)
 {
     double position[3] = {0.5, 0.5, 1.0};
     double cell[3][3] = {
@@ -40,10 +40,10 @@ UTEST(CellTests, test_is_position_in_cell_surface)
         {0.0, 0.0, 1.0},
     };
     double tolerance = 1.0e-6;
-    ASSERT_TRUE(is_position_in_cell(position, cell, tolerance));
+    ASSERT_TRUE(cell_contains(cell, position, tolerance));
 }
 
-UTEST(CellTests, test_is_position_in_cell_outside)
+UTEST(CellTests, test_cell_contains_outside)
 {
     double position[3] = {1.5, 1.5, 1.5};
     double cell[3][3] = {
@@ -52,5 +52,5 @@ UTEST(CellTests, test_is_position_in_cell_outside)
         {0.0, 0.0, 1.0},
     };
     double tolerance = 1.0e-6;
-    ASSERT_FALSE(is_position_in_cell(position, cell, tolerance));
+    ASSERT_FALSE(cell_contains(cell, position, tolerance));
 }

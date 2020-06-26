@@ -1,6 +1,3 @@
 [submodule "deps/utest.h"]
 	path = deps/utest.h
 	url = https://github.com/sheredom/utest.h.git
-[submodule "deps/vector.h"]
-	path = deps/vector.h
-	url = https://github.com/seatonullberg/vector.h.git
