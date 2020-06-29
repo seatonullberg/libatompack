@@ -36,7 +36,7 @@
 
 /* vector functions using c arrays */
 
-void normalize(double a[3])
+void rmsd_normalize(double a[3])
 {
     double b;
 
@@ -46,12 +46,12 @@ void normalize(double a[3])
     a[2] /= b;
 }
 
-double dot(double a[3], double b[3])
+double rmsd_dot(double a[3], double b[3])
 {
     return (a[0] * b[0] + a[1] * b[1] + a[2] * b[2]);
 }
 
-static void cross(double a[3], double b[3], double c[3])
+static void rmsd_cross(double a[3], double b[3], double c[3])
 {
     a[0] = b[1] * c[2] - b[2] * c[1];
     a[1] = b[2] * c[0] - b[0] * c[2];
@@ -147,7 +147,7 @@ void setup_rotation(double ref_xlist[][3],
  * symmetric matrix. On output, elements of a that are above 
  * the diagonal are destroyed. d[1..3] returns the 
  * eigenval of a. v[1..3][1..3] is a matrix whose 
- * columns contain, on output, the normalized eigen_vec of
+ * columns contain, on output, the rmsd_normalized eigen_vec of
  * a. n_rot returns the number of Jacobi rotations that were required.
  */
 int jacobi3(double a[3][3], double d[3], double v[3][3], int *n_rot)
@@ -356,7 +356,7 @@ int calculate_rotation_matrix(double R[3][3],
     /* right_eigenvec's should be an orthogonal system but could be left
    * or right-handed. Let's force into right-handed system.
    */
-    cross(&right_eigenvec[2][0], &right_eigenvec[0][0], &right_eigenvec[1][0]);
+    rmsd_cross(&right_eigenvec[2][0], &right_eigenvec[0][0], &right_eigenvec[1][0]);
 
     /* From the Kabsch algorithm, the eigenvec's of RtR
    * are identical to the right_eigenvec's of R.
@@ -364,10 +364,10 @@ int calculate_rotation_matrix(double R[3][3],
    */
     for (i = 0; i < 3; i++)
         for (j = 0; j < 3; j++)
-            left_eigenvec[i][j] = dot(&right_eigenvec[i][0], &Rt[j][0]);
+            left_eigenvec[i][j] = rmsd_dot(&right_eigenvec[i][0], &Rt[j][0]);
 
     for (i = 0; i < 3; i++)
-        normalize(&left_eigenvec[i][0]);
+        rmsd_normalize(&left_eigenvec[i][0]);
 
     /* 
    * Force left_eigenvec[2] to be orthogonal to the other vectors.
@@ -376,8 +376,8 @@ int calculate_rotation_matrix(double R[3][3],
    * co-ordinate system - given by sigma. Sigma is needed to
    * resolve this ambiguity in calculating the RMSD.
    */
-    cross(v, &left_eigenvec[0][0], &left_eigenvec[1][0]);
-    if (dot(v, &left_eigenvec[2][0]) < 0.0)
+    rmsd_cross(v, &left_eigenvec[0][0], &left_eigenvec[1][0]);
+    if (rmsd_dot(v, &left_eigenvec[2][0]) < 0.0)
         sigma = -1.0;
     else
         sigma = 1.0;
@@ -425,7 +425,7 @@ void calculate_rotation_rmsd(double ref_xlist[][3],
  * analytical, rather than iterative, method to save time. 
  * The cubic factorization used to accomplish this only produces 
  * stable eigenvalues for the transpose(R]*R matrix of a typical 
- * protein after the whole matrix has been normalized. Note that 
+ * protein after the whole matrix has been rmsd_normalized. Note that 
  * the normalization process used here is completely empirical 
  * and that, at the present time, there are **no checks** or 
  * warnings on the quality of the (potentially unstable) cubic 
@@ -459,8 +459,8 @@ void fast_rmsd(double ref_xlist[][3],
    * see if R produces a right-handed or left-handed
    * co-ordinate system.
    */
-    cross(v, &R[1][0], &R[2][0]);
-    if (dot(&R[0][0], v) > 0.0)
+    rmsd_cross(v, &R[1][0], &R[2][0]);
+    if (rmsd_dot(&R[0][0], v) > 0.0)
         omega = 1.0;
     else
         omega = -1.0;

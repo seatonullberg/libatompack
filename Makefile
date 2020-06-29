@@ -1,10 +1,11 @@
-INCLUDE=-Ideps/rmsd -Ideps/utest.h
+INCLUDE=-Isrc
 
 all:
 	@make shared
 
 clean:
 	@rm -rf bin
+	@rm -rf lib
 
 document:
 	@rm -rf docs
@@ -13,10 +14,10 @@ document:
 	@rm -rf docs/html
 
 shared:
-	@mkdir -p bin
-	@gcc $(INCLUDE) -fPIC -shared -o bin/libatompack.so src/*.c
+	@mkdir -p lib
+	@gcc $(INCLUDE) -fPIC -shared -o lib/libatompack.so src/*.c
 
 test:
 	@mkdir -p bin
-	@gcc $(INCLUDE) -Isrc -lm -o ./bin/libatompack-tests src/*.c tests/*.c
+	@gcc $(INCLUDE) -lm -o bin/libatompack-tests src/*.c tests/*.c
 	@./bin/libatompack-tests

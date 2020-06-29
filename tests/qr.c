@@ -1,22 +1,7 @@
 #include <math.h>
-#include <stdlib.h>
 #include "qr.h"
 #include "utest.h"
-
-int matrix_eq(double a[][3], double b[][3], size_t length, double tolerance)
-{
-    for (int i = 0; i < length; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            if (abs(a[i][j] - b[i][j]) > tolerance)
-            {
-                return 0; // false
-            }
-        }
-    }
-    return 1; // true
-}
+#include "util.h"
 
 UTEST(QRTests, test_qr)
 {
@@ -38,6 +23,6 @@ UTEST(QRTests, test_qr)
     };
 
     qr(a, q, r);
-    ASSERT_TRUE(matrix_eq(q, target_q, 3, 1.0e-6));
-    ASSERT_TRUE(matrix_eq(r, target_r, 3, 1.0e-6));
+    EXPECT_TRUE(matrix_eq(q, target_q, 1.0e-6));
+    EXPECT_TRUE(matrix_eq(r, target_r, 1.0e-6));
 }

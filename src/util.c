@@ -57,6 +57,22 @@ double euclidean(double a[3], double b[3])
     return sqrt(sum);
 }
 
+// Returns 1 if the given matrices are equal else 0.
+int matrix_eq(double a[3][3], double b[3][3], double tolerance)
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (fabs(a[i][j] - b[i][j]) > tolerance)
+            {
+                return 0; // false
+            }
+        }
+    }
+    return 1; // true
+}
+
 // Returns the l2 norm of a vector.
 double norm(double a[3])
 {
