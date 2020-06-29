@@ -56,38 +56,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This file contains functions which operate on or produce a 3x3 matrix representation of a parallelepiped cell.  
+<p>This file contains functions which operate on 3x3 matrix representation of a parallelepiped cell.  
 <a href="#details">More...</a></p>
 
 <p><a href="cell_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af0def865cef171495f7d3504d1ce2086"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#af0def865cef171495f7d3504d1ce2086">is_position_in_cell</a> (double position[3], double cell[3][3], double tolerance)</td></tr>
-<tr class="separator:af0def865cef171495f7d3504d1ce2086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea5071a3af209fb5cdf3d1dca48fa02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#a8ea5071a3af209fb5cdf3d1dca48fa02">cell_contains</a> (double cell[3][3], double position[3], double tolerance)</td></tr>
+<tr class="separator:a8ea5071a3af209fb5cdf3d1dca48fa02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa45933c23c6e8527a87c40933f653b33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cell_8h.html#aa45933c23c6e8527a87c40933f653b33">metric_tensor</a> (double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])</td></tr>
 <tr class="separator:aa45933c23c6e8527a87c40933f653b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains functions which operate on or produce a 3x3 matrix representation of a parallelepiped cell. </p>
+<div class="textblock"><p>This file contains functions which operate on 3x3 matrix representation of a parallelepiped cell. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="af0def865cef171495f7d3504d1ce2086"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0def865cef171495f7d3504d1ce2086">&#9670;&nbsp;</a></span>is_position_in_cell()</h2>
+<a id="a8ea5071a3af209fb5cdf3d1dca48fa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ea5071a3af209fb5cdf3d1dca48fa02">&#9670;&nbsp;</a></span>cell_contains()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int is_position_in_cell </td>
+          <td class="memname">int cell_contains </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>position</em>[3], </td>
+          <td class="paramname"><em>cell</em>[3][3], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>cell</em>[3][3], </td>
+          <td class="paramname"><em>position</em>[3], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -105,9 +105,9 @@ Functions</h2></td></tr>
 <p>Returns 1 if the position is within the cell else 0.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>The position. </td></tr>
-    <tr><td class="paramname">cell</td><td>The cell. </td></tr>
-    <tr><td class="paramname">tolerance</td><td>The radius of tolerance. </td></tr>
+    <tr><td class="paramname">cell</td><td>3x3 matrix representation of a cell. </td></tr>
+    <tr><td class="paramname">position</td><td>3D position vector. </td></tr>
+    <tr><td class="paramname">tolerance</td><td>Radius of tolerance. </td></tr>
   </table>
   </dd>
 </dl>
