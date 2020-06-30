@@ -17,8 +17,11 @@ UTEST(NearestTests, test_nearest_neighbor)
     };
     int periodicity[3] = {1, 1, 1};
     double tolerance = 1.0e-6;
+    double out = 0.0;
 
-    ASSERT_EQ(nearest_neighbor(position, positions, length, cell, periodicity, tolerance), 2);
+    int res = nearest_neighbor(position, positions, length, cell, periodicity, tolerance, &out);
+    EXPECT_EQ(res, 2);
+    EXPECT_TRUE(out - 0.173205081 < tolerance);
 }
 
 UTEST(NearestTests, test_periodic_image)

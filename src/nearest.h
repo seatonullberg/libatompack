@@ -15,8 +15,9 @@
  * @param periodicity An array indicating which directions are treated periodically.
  *      1 indicates periodic and 0 indicates nonperiodic.
  * @param tolerance The radius of tolerance.
+ * @param out The distance to the nearest neighbor
 */
-size_t nearest_neighbor(double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance);
+size_t nearest_neighbor(double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance, double *out);
 
 void periodic_image(double position[3], double cell[3][3], int periodicity[3], double tolerance, double out[3]);
 void reduced_periodic_image(double position[3], double cell[3][3], int periodicity[3], double tolerance, double out[3]);

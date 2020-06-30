@@ -49,7 +49,7 @@ void reduced_periodic_image(double position[3], double cell[3][3], int periodici
     }
 }
 
-size_t nearest_neighbor(double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance)
+size_t nearest_neighbor(double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance, double *out)
 {
     size_t index;
     double tmp_distance;
@@ -67,5 +67,6 @@ size_t nearest_neighbor(double position[3], double positions[][3], size_t length
             distance = tmp_distance;
         }
     }
+    *out = distance;
     return index;
 }
