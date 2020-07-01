@@ -1,6 +1,7 @@
 #include "cell.h"
 #include "constants.h"
 #include "utest.h"
+#include "util.h"
 
 UTEST(CellTests, test_metric_tensor)
 {
@@ -11,12 +12,14 @@ UTEST(CellTests, test_metric_tensor)
     alpha = PI / 2.0;
     beta = PI / 2.0;
     gamma = PI / 2.0;
-    double m[3][3];
-    metric_tensor(a, b, c, alpha, beta, gamma, m);
-
-    EXPECT_EQ(m[0][0], 4.0);
-    EXPECT_EQ(m[1][1], 4.0);
-    EXPECT_EQ(m[2][2], 4.0);
+    double out[3][3];
+    double target[3][3] = {
+        {4.0, 0.0, 0.0},
+        {0.0, 4.0, 0.0},
+        {0.0, 0.0, 4.0},
+    };
+    metric_tensor(a, b, c, alpha, beta, gamma, out);
+    ASSERT_TRUE(matrix_eq(out, target, 3, 1.0e-6));
 }
 
 UTEST(CellTests, test_cell_contains_inside)

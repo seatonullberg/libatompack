@@ -23,6 +23,6 @@ UTEST(QRTests, test_qr)
     };
 
     qr(a, q, r);
-    EXPECT_TRUE(matrix_eq(q, target_q, 1.0e-6));
-    EXPECT_TRUE(matrix_eq(r, target_r, 1.0e-6));
+    EXPECT_TRUE(matrix_eq(q, target_q, 3, 1.0e-15));
+    EXPECT_TRUE(matrix_eq(r, target_r, 3, 1.0e-15));
 }

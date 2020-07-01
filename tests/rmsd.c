@@ -25,5 +25,5 @@ UTEST(RMSDTests, test_calculate_rotation_rmsd)
     };
 
     calculate_rotation_rmsd(ref_xlist, mov_xlist, 3, move_com, move_to_ref, U, &rmsd);
-    ASSERT_TRUE(matrix_eq(U, target_U, 1.0e-6));
+    ASSERT_TRUE(matrix_eq(U, target_U, 3, 1.0e-6));
 }

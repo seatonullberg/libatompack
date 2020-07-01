@@ -1,5 +1,6 @@
 #include "nearest.h"
 #include "utest.h"
+#include "util.h"
 
 UTEST(NearestTests, test_nearest_neighbor)
 {
@@ -21,7 +22,7 @@ UTEST(NearestTests, test_nearest_neighbor)
 
     int res = nearest_neighbor(position, positions, length, cell, periodicity, tolerance, &out);
     EXPECT_EQ(res, 2);
-    EXPECT_TRUE(out - 0.173205081 < tolerance);
+    ASSERT_TRUE(out - 0.173205081 < tolerance);
 }
 
 UTEST(NearestTests, test_periodic_image)
@@ -35,11 +36,9 @@ UTEST(NearestTests, test_periodic_image)
     int periodicity[3] = {1, 0, 1};
     double tolerance = 1.0e-6;
     double out[3];
-
+    double target[3] = {0.75, 1.75, 0.25};
     periodic_image(position, cell, periodicity, tolerance, out);
-    EXPECT_EQ(out[0], 0.75);
-    EXPECT_EQ(out[1], 1.75);
-    EXPECT_EQ(out[2], 0.25);
+    ASSERT_TRUE(array_eq(out, target, 1.0e-15))
 }
 
 UTEST(NearestTests, test_reduced_periodic_image)
@@ -53,9 +52,7 @@ UTEST(NearestTests, test_reduced_periodic_image)
     int periodicity[3] = {1, 0, 1};
     double tolerance = 1.0e-6;
     double out[3];
-
+    double target[3] = {0.25, 1.75, 0.25};
     reduced_periodic_image(position, cell, periodicity, tolerance, out);
-    EXPECT_EQ(out[0], 0.25);
-    EXPECT_EQ(out[1], 1.75);
-    EXPECT_EQ(out[2], 0.25);
+    ASSERT_TRUE(array_eq(out, target, 1.0e-15));
 }
