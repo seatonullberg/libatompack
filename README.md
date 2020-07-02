@@ -10,7 +10,7 @@ This library is intended to be used as a shared object file or 'dylib' which oth
 Start by cloning the git repository and using the [Makefile](./Makefile) build system.
 
 ```bash
-$ git clone --recurse-submodules https://github.com/seatonullberg/libatompack.git # clone the repo and its dependencies
+$ git clone https://github.com/seatonullberg/libatompack.git
 $ cd libatompack
 $ make test # run the test suite
 $ make      # build the shared library
