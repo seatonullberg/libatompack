@@ -15,7 +15,7 @@ document:
 
 shared:
 	@mkdir -p lib
-	@gcc $(INCLUDE) -fPIC -shared -o lib/libatompack.so src/*.c
+	@gcc $(INCLUDE) -fPIC -shared -O3 -o lib/libatompack.so src/*.c
 
 test:
 	@mkdir -p bin

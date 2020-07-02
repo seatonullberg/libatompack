@@ -64,20 +64,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a82e562d1f96b09fb38ec0c7e855d5be6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nearest_8h.html#a82e562d1f96b09fb38ec0c7e855d5be6">nearest_neighbor</a> (double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance)</td></tr>
-<tr class="separator:a82e562d1f96b09fb38ec0c7e855d5be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2a4618a60a13214129543b83228c8db"><td class="memItemLeft" align="right" valign="top"><a id="af2a4618a60a13214129543b83228c8db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>periodic_image</b> (double position[3], double cell[3][3], int periodicity[3], double tolerance, double out[3])</td></tr>
-<tr class="separator:af2a4618a60a13214129543b83228c8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ba2dd473313379d5f09b260c2eb582"><td class="memItemLeft" align="right" valign="top"><a id="af5ba2dd473313379d5f09b260c2eb582"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reduced_periodic_image</b> (double position[3], double cell[3][3], int periodicity[3], double tolerance, double out[3])</td></tr>
-<tr class="separator:af5ba2dd473313379d5f09b260c2eb582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d750223a9394cae26f8dbf287b11850"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nearest_8h.html#a0d750223a9394cae26f8dbf287b11850">nearest_neighbor</a> (double position[3], double positions[][3], size_t length, double cell[3][3], int periodicity[3], double tolerance, double *out)</td></tr>
+<tr class="separator:a0d750223a9394cae26f8dbf287b11850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains an implementation of nearest neighbors search in periodic space. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a82e562d1f96b09fb38ec0c7e855d5be6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82e562d1f96b09fb38ec0c7e855d5be6">&#9670;&nbsp;</a></span>nearest_neighbor()</h2>
+<a id="a0d750223a9394cae26f8dbf287b11850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d750223a9394cae26f8dbf287b11850">&#9670;&nbsp;</a></span>nearest_neighbor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +110,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reduced_periodic_imag
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>tolerance</em>&#160;</td>
+          <td class="paramname"><em>tolerance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -134,6 +134,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>reduced_periodic_imag
     <tr><td class="paramname">cell</td><td>The bounding box represented as a 3x3 matrix. </td></tr>
     <tr><td class="paramname">periodicity</td><td>An array indicating which directions are treated periodically. 1 indicates periodic and 0 indicates nonperiodic. </td></tr>
     <tr><td class="paramname">tolerance</td><td>The radius of tolerance. </td></tr>
+    <tr><td class="paramname">out</td><td>The distance to the nearest neighbor </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,7 +1,8 @@
 #include <math.h>
 #include "util.h"
 
-void cell_vertices(double cell[3][3], double out[8][3])
+// Populates an array with the vertices of a cell.
+void _cell_vertices(double cell[3][3], double out[8][3])
 {
     double origin[3] = {0.0, 0.0, 0.0};
     double x[3] = {cell[0][0], cell[0][1], cell[0][2]};
@@ -40,10 +41,11 @@ void cell_vertices(double cell[3][3], double out[8][3])
     }
 }
 
-void cell_faces(double cell[3][3], double out[6][3][3])
+// Populates an array with the faces of a cell represented as an array of 3 coplanar points.
+void _cell_faces(double cell[3][3], double out[6][3][3])
 {
     double verts[8][3];
-    cell_vertices(cell, verts);
+    _cell_vertices(cell, verts);
     for (int i = 0; i < 3; i++)
     {
         // lower xy
@@ -73,12 +75,13 @@ void cell_faces(double cell[3][3], double out[6][3][3])
     }
 }
 
-void cell_normals(double cell[3][3], double out[6][3])
+// Populates an array with the vector normal to each face on the cell.
+void _cell_normals(double cell[3][3], double out[6][3])
 {
     double d;
     double a[3], b[3], n[3];
     double faces[6][3][3];
-    cell_faces(cell, faces);
+    _cell_faces(cell, faces);
     for (int i = 0; i < 6; i++)
     {
         sub(faces[i][1], faces[i][0], a);
@@ -92,9 +95,9 @@ void cell_normals(double cell[3][3], double out[6][3])
 int cell_contains(double cell[3][3], double position[3], double tolerance)
 {
     double faces[6][3][3];
-    cell_faces(cell, faces);
+    _cell_faces(cell, faces);
     double normals[6][3];
-    cell_normals(cell, normals);
+    _cell_normals(cell, normals);
     double p2f[3], reduced_normal[3];
     double d, p2f_norm;
 
@@ -112,17 +115,6 @@ int cell_contains(double cell[3][3], double position[3], double tolerance)
     return 1; // true
 }
 
-/**
- * Populates a 3x3 matrix with the metric tensor for a given set of lattice parameters.
- * 
- * @param a The \\(a\\) distance parameter.
- * @param b The \\(b\\) distance parameter.
- * @param c The \\(c\\) distance parameter.
- * @param alpha The \\(\alpha\\) angle parameter (in radians).
- * @param beta The \\(\beta\\) angle parameter (in radians).
- * @param gamma The \\(\gamma\\) angle parameter (in radians).
- * @param out The output array into which the metric tensor is copied.
-*/
 void metric_tensor(double a, double b, double c, double alpha, double beta, double gamma, double out[3][3])
 {
     out[0][0] = a * a;
